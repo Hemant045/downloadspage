@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Shuru ho rahi hai...</title>
+</head>
+<body>
+  <p>✅ Payment successful! Abhi aapka PDF download hoga...</p>
+
+  <script>
+    setTimeout(() => {
+      const link = document.createElement("a");
+      link.href = "https://drive.google.com/uc?export=download&id=1FgX7x7DFx-srUL8RcUqMUAyv1JmJOWlw";
+      link.download = "Notes.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 1000);
+  </script>
+</body>
+</html>
