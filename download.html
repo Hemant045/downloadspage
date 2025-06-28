@@ -1,20 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Download Shuru ho rahi hai...</title>
+  <meta charset="UTF-8" />
+  <title>Course PDF Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #2e86de;
+      font-size: 22px;
+    }
+
+    p {
+      color: #333;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .loader {
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #2e86de;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      display: none;
+    }
+
+    .complete {
+      color: green;
+    }
+
+    .manual-link {
+      display: none;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .manual-link a {
+      color: #2e86de;
+      text-decoration: none;
+    }
+
+    .manual-link a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 20px;
+      }
+      p, .status {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>✅ Payment successful! Abhi aapka PDF download hoga...</p>
+  <div class="container">
+    <h1>🎉 Payment Successful!</h1>
+    <p>Thank you for purchasing the course.</p>
+    <p><strong>Course Notes (PDF)</strong> will download automatically in a moment.</p>
+    <p id="downloadingText">Downloading your Course PDF...</p>
+    <div class="loader" id="loader"></div>
+    <p class="status" id="statusText">📥 Download Started...</p>
+    <p class="status complete" id="completeText">✅ Download Complete!</p>
+    <p class="manual-link" id="manualLink">(If not downloaded, <a href="https://drive.google.com/uc?export=download&id=1FgX7x7DFx-srUL8RcUqMUAyv1JmJOWlw" target="_blank">click here</a> to download manually)</p>
+  </div>
 
   <script>
     setTimeout(() => {
       const link = document.createElement("a");
-      link.href = "https://drive.google.com/uc?export=download&id=1FgX7x7DFx-srUL8RcUqMUAyv1JmJOWlw";
-      link.download = "Notes.pdf";
-      document.body.appendChild(link);
+      link.href = "https://drive.google.com/uc?export=download&id=1P3UKyICbdDubmYhhPMPbt8l-SNFhb8l8";
+      link.download = "CourseNotes.pdf";
       link.click();
-      document.body.removeChild(link);
-    }, 1000);
+
+      document.getElementById("statusText").style.display = "block";
+
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("statusText").style.display = "none";
+        document.getElementById("downloadingText").style.display = "none";
+        document.getElementById("completeText").style.display = "block";
+        document.getElementById("manualLink").style.display = "block"; // ✅ Show manual download link
+      }, 4000);
+    }, 2000);
   </script>
 </body>
 </html>
